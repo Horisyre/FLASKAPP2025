@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %} Home Page {% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+        
+    </head>
+
+    <body class="layout_body">
+        <div class="container">
+            
+            <div class="left">
+                <div class="navbar",align="right">
+                    <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
+                    <a href="{{ url_for('Completed') }}" class="navbar-item">completed</a>
+                    <a href="{{ url_for('Alerts') }}" class="navbar-item">Alerts</a>
+                </div>
+
+                {% block dropdown_options %} 
+                <div class="dropdown">
+                    <button class="dropbtn">Dropdown</button>
+                    <div class="dropdown-content" >
+                    
+                    <a href= "{{ url_for('customerCreation') }}" class="dropdown-options" target="_blank" rel="noopener noreferrer">Create CRO</a>
+                    <a href="{{ url_for('CustomerAlter') }}"  class="dropdown-options" target="_blank" rel="noopener noreferrer">Alter CRO</a>
+                    <a href="{{ url_for('CompleteCro') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Complete Repair order </a>  
+                    <a href="{{ url_for('WorkLogs') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Work Logs</a>
+                    </div>
+                </div>
+                {% endblock %}  
+                <main>
+
+                {% block content %}
+                {% endblock %}
+                
+                </main>
+                {% block scripts %}
+                {% endblock %}
+
+                <div>
+                    <footer class="footer">
+                        <hr/>
+                        <p>&copy; 2024</p>
+                    </footer>
+                </div>
+            </div>
+            <div class="right">
+                <span>
+                    <a href="{{ url_for('help') }}" class="navbar-item">Help</a>
+                    <a href="{{ url_for('prices') }}" class="navbar-item">Prices</a>
+                </span>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weekly Profit</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" text="text/css" href="{{url_for('static', filename='Site.css')}}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    </head>
+    <body>
+        <canvas id="weeklyGraph" class="weeklyGraph">
+        </canvas>
+        <script>
+            const json_dates= {{dates | tojson |safe}};
+            const json_money_earned= {{costs | tojson |safe}};
+            var ctx = document.getElementById('weeklyGraph').getContext('2d');
+                var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                labels: json_dates,
+                datasets: [{
+                label: 'Sales',
+                data: json_money_earned,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 99, 132, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 189, 72, 1)'
+                ],borderWidth: 1
+                }]}
+                });
+        </script>
+        <!--add options for chart js--> 
+    </body>
+        
+
+</html>

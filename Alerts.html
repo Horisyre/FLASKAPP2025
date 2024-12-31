@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block title %} Alerts Page {% endblock %}
+{% block dropdown_options %} 
+
+{% block content %}
+{% endblock %} 
+        <div>
+            <form action="{{url_for('Alerts')}}">
+                {{ form.hidden_tag() }} 
+                <span class="my_span">
+                    <label for="Tech_number">Technician number: </label>
+                    <input type="text" name="Tech_number">
+                </span>
+
+                <span class="my_span">
+                    <input type="submit" value="Fetch">
+                </span>
+            </form>
+        </div>
+
+        <div>
+            {%if table_data%}
+            <table>
+                <tr>
+                {% for column_name in columns%}
+                    <th>{{column_name}}</th>
+                {% endfor %}
+                </tr>
+
+
+                {% for data in table_data %}
+                    <tr>
+                        {% for value in data %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+            {%endif%}
+        </div>
+
+        <div>
+            {%if msg%}
+                <p>{{msg}}</p>
+            {%endif}
+        </div>
+{% endblock %}

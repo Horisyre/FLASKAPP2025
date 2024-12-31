@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" text="type/css" href="{{url_for('static', filename='Site.css')}}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <canvas id="PieGraph" class="PieGraph">
+        <script >
+            const j_data= {{data|tojson}}
+        </script>
+    </body>
+</html>

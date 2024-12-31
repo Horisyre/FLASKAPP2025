@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Customer Alter</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    </head>
+    <body>
+        <div>
+            <form action="{{url_for('GETCRO')}}" method='POST' id="firstform"><!--change to a get method-->
+                {{ form1.hidden_tag() }} 
+                <fieldset id="form1fieldset">
+                    <label>Alter by CRO number:</label>
+                    <input type="text" name= "CroNo" id="CroNo">
+                    <input type="submit" value="Fetch">
+                </fieldset>
+            </form>
+        </div>
+
+        <div>
+            <form action="{{url_for('ALTERCRO')}}" method='POST'id="secondform" ><!-- add csrf token and add hidden(form.hidden_tag()) make CRO_NUMBER hidden type-->
+                {{ form2.hidden_tag() }}
+                <fieldset id="form2fieldset">
+                    <span class="my_span">
+                        <label for="CRO_number">CRO_number:</label>
+                        <input type="text" name="CRO_number" id="CRO_number" value="{{CRO_num}}" required>
+                    </span><br>
+                    <span class="my_span">
+                        <label for="CustAddress">physical address:</label>
+                        <input type="text" name="CustAddress" id="CustAddress" value="{{default_CustAdd}}" required>
+                    </span><br>
+                    <span class="my_span">
+                        <label for="CustPhoneNo">phone number:</label>
+                        <input type="text" name="CustPhoneNo" id="CustPhoneNo" value="{{default_CustPhone}}" required>
+                    </span><br>
+                    <span class="my_span">
+                        <label for="CustomerName" >customer name:</label>
+                        <input type="text" name="CustomerName" id="CustomerName" value="{{default_CustName}}" required>
+                    </span><br>
+                    <span class="my_span">
+                        <label for="CustomerEmail" >customer email:</label>
+                        <input type="text" name="CustomerEmail" id="CustomerEmail" value="{{default_CustEmail}}" required>
+                    </span><br>
+
+
+                    <span class="my_span">
+                        <label for="Purchased_Items" >Purchased_Items:</label>
+                        <input type="text" name="Purchased_Items" id="Purchased_Items">
+                        <label for="Purchased_Items_Cost" >Purchased_Items_Cost:</label>
+                        <input type="text" name="Purchased_Items_Cost" id="Purchased_Items_Cost" required>
+                    </span><br>
+
+                    <input type="submit" value="Alter">
+                </fieldset>
+            </form> 
+        </div>
+        <div>
+        {% if msg %}
+            <p>{{msg}}</p>
+        {% endif %}
+        </div>
+        <script>
+            const boolean_var= {{ variable1 | tojson }};
+            if (boolean_var){
+                form1fieldset.disabled =false;
+                form2fieldset.disabled=true;
+            }
+            else{
+                form1fieldset.disabled = true;
+                form2fieldset.disabled=false;
+            }
+        </script>
+    </body>
+</html>
+<!-- first we  we can make each <td> tags editable, then create A GET.request in which case we query for a specific CRO number , hence we need a SEARCH 
+ button whihch searchs by CRO number  the table then populates with requested data -->
+<!--Capture updates to the table using JavaScript.
+Send the updated data to the backend using AJAX (Fetch or Axios).
+Update the database in the Flask backend.--> 
+
+<!-- add a inout here to alter the status of the repair order as well as commemnts-->
