@@ -20,6 +20,10 @@ CREATE TABLE Workshop (
     Purchased_Items VARCHAR(255),
     Diagnostic VARCHAR(255) NULL,
     Checked_out DATE DEFAULT NULL,
+    Repair_type ENUM('01', '02', '03', '04', '05', '06', '07'),
+    Repair_Cost DECIMAL(10, 2) DEFAULT NULL,
+    Purchased_Items_Cost DECIMAL(10, 2) DEFAULT NULL,
+    Total_Cost DECIMAL(10, 2) DEFAULT NULL,
     FOREIGN KEY (Cro_id) REFERENCES Customers(Cro_id) 
 );
 
