@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> complete repair order</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    </head>
+    <body>
+        <div class="completeCroContent"></div>
+            <div>
+                <form action="{{url_for('GettingCroForCompleting')}}" method="POST" id="firstform">
+                    {{ form1.hidden_tag() }}
+                    <fieldset id="form1fieldset">
+                        <label for="">CRO number:</label>
+                        <input type="text"name="CRO_number" id="name">
+                        <input type="submit" value="submit">
+                    </fieldset>
+                </form>
+            </div>
+
+            <div>
+                <table class="tabledata">
+                    <tr > 
+                    {% for name in TableColumns%}
+                        <th class="tabledataDATA">{{name}}</th>
+                    {%endfor%}
+                    </tr>
+                    <tr>
+                    {%for data in customer%}
+                        <td class="tabledataDATA" >{{data}}</td>
+                    {%endfor%}
+                    </tr>
+                </table>
+            </div>
+            
+            <div>
+                <form action="{{url_for('CompletingCro')}}" method="POST" id="secondform">
+                    {{ form2.hidden_tag() }}
+                    <fieldset id="form2fieldset">
+                        <span class="my_span">
+                            <input type="hidden" name="CRO" value="{{CRO_NUM}}"> <!--hide this-->    
+                        </span>
+                        <span class="my_span">
+                            <label for="Purchased_Items">Pruchsed Items</label>
+                            <input type="text" name="Purchased_Items">
+                        </span>
+                        <span class="my_span">
+                            <label for="diagnostics">Diagnostics </label>
+                            <input type="text" name="diagnostics" required>
+                        </span>
+                        <span class="my_span">
+                            <label for="RepairType">Repair Type</label>
+                            <select name="RepairType" id="RepairType">
+                                <option value="01">Base Troubleshooting</option>
+                                <option value="02">Hardware Installation</option>
+                                <option value="03">Data Recovery</option>
+                                <option value="04">Operating System repair</option>
+                                <option value="05">Printer Setup</option>
+                                <option value="06">Virus Removal</option>
+                                <option value="07">Software Installation</option>
+                            </select>
+                        </span>
+                        <input type="submit" value="submit">
+                    </fieldset>
+                </form>            
+            </div>
+        </div>
+
+        <div>
+            {%if msg%}
+                <p>{{msg}}</p>
+            {%endif%}
+        </div>
+        <script>
+            const boolean_var= {{ variable1 | tojson }};
+            if (boolean_var){
+                form1fieldset.disabled =false;
+                form2fieldset.disabled=true;
+            }
+            else{
+                form1fieldset.disabled = true;
+                form2fieldset.disabled=false;
+            }
+
+        </script>
+    </body>
+</html>

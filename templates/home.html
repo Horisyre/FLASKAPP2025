@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+<!--here we will add iframes-->
+{% block content %}
+    <!--here we will add A DIV, THE DIV WILL BE DIVIDED IINTO FOUR PARTS, A ROW
+    THE FIRST PART WILL HAVE A NUMBER AND COMPLETED JOBS SO FAR,
+    SECOND PART NUMBER OF JOBS UPCOMING, MEANING JOBS THAT ARE PENDING OR BUSY 
+    THIRD PART WILL BE PERCENTAGE OF JOBS COMPLETED 
+    FOURTH PART WILL BE A RANK COMPARED TO OTHER TECHNICIANSS -->
+    <div class="parts_container">
+        <div class="parts" >
+            {{TotalJobsCreated}}<br>
+            TOTAL JOBS CREATED
+        </div>
+        <div class="parts">
+            {{JobsUpcoming}}<br>
+            JOBS UPCOMING
+        </div>
+        <div class="parts">
+            {{TotalJobsCompleted}}<br>
+            TOTAL JOBS COMPLETED
+        </div>
+        <div class="parts">
+            {{Rank}}<br>
+            TECHNICIAN RANK
+        </div>
+    </div>
+    <div class="top_frame_container">
+        <div class="parts">
+            <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
+        </div> 
+        <div class="parts">   
+            <iframe src="{{url_for('ToDoList')}}" frameborder="0"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
+        </div>  
+    </div>
+
+    <div id="bottom_frame_container">
+        <div class="parts">
+            <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0"></iframe>
+        </div>
+        <div class="parts">
+            <iframe src="{{ url_for('UserProfile') }}" frameborder="0"></iframe>
+        </div>
+        <div class="parts">
+            <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"></iframe>
+            <!-- ANOTHER FRAME WILL HAVE A PIE CHARTING REPRESENTING TYPES OF JOBS-->
+        </div>
+        <div class="parts">
+            <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0"></iframe>
+            <!-- compares jobs completed for technician to toal jobs completed by all technicians-->
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        const dropdownOptions = document.querySelectorAll('.dropdown-options');
+        // Add click event listener
+        dropdownOptions.forEach(option => {
+            option.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor behavior
+
+                const url = this.href; // Get the href of the link
+                const width = 800; // Slightly less than half the screen width
+                const height = 600; // Reduced height
+                const left = (window.innerWidth - width) / 2; // Center horizontally
+                const top = (window.innerHeight - height) / 2; // Center vertically
+
+                    // Open a new window with specified dimensions
+                window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top}`);
+        });
+    });          
+    </script>
+
+    <script>
+        const javascript_msg ={{msg | tojson }};
+        if(javascript_msg){
+            alert("YOU HAVE REPAIR ORDERS NEARING REQUIRED COMPLETION TIME")           
+        }
+    </script>
+{% endblock %}
