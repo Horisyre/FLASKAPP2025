@@ -1,4 +1,4 @@
-
+import datetime
 def get_time_now() :
     current_time = datetime.datetime.now()
     formated_time=current_time.strftime("%m-%d-%Y %H:%M")
