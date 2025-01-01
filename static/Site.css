@@ -1,0 +1,179 @@
+.parts{
+    display: inline-block;
+    border: 1px solid aquamarine;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 12px;
+}
+.tabledata{
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 12px;
+    
+}
+.tabledataDATA{
+     
+    border: 1px solid black; /* Solid black border */
+}
+.parts_container{
+    border: 1px solid green;
+    text-align: center;
+}
+.top_frame_container{
+    border: 1px solid green;
+    text-align: center;
+}
+.bottom_frame_container{
+    border: 1px solid green;
+    text-align: center;
+}
+
+.message {
+    font-weight: 200;
+    color: green;
+}
+.navbar {
+    background-color: lightslategray;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+}
+.date{
+    text-align: center;
+}
+#date{
+    text-align: center;
+}
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    left:0;
+    text-align: center;
+    padding: 10px;
+}
+
+.label-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+}
+
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login_form {
+    width: 200px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+    /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: grey;}
+
+.border{
+    border: 2px solid black; 
+    padding: 10px;          
+    margin: 10px; 
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Stack label above input */
+    margin-bottom: 15px;
+}
+.button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background-color: #45a049;
+}
+
+.my_span {
+    display: block;
+}
+.mydate{
+    text-align: center;
+}
+.inputField{
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 8px;
+}
+
+.container{
+    display: flex;
+}
+.left{
+    width: 90%;
+}
+.right{
+    width: 10%;
+}
