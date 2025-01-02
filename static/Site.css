@@ -1,6 +1,14 @@
 .parts{
     display: inline-block;
     border: 1px solid aquamarine;
+    text-align: center;
+    font-size: 12px;
+    box-sizing: border-box;
+    
+}
+.part{
+    display: inline-block;
+    border: 1px solid aquamarine;
     padding: 1rem 1rem;
     text-align: center;
     font-size: 12px;
@@ -17,18 +25,13 @@
     border: 1px solid black; /* Solid black border */
 }
 .parts_container{
-    border: 1px solid green;
     text-align: center;
 }
-.top_frame_container{
-    border: 1px solid green;
+.frame_container{
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
-.bottom_frame_container{
-    border: 1px solid green;
-    text-align: center;
-}
-
 .message {
     font-weight: 200;
     color: green;
