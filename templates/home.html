@@ -25,31 +25,33 @@
             TECHNICIAN RANK
         </div>
     </div>
-    <div class="top_frame_container">
+    <div class="frame_container">
         <div class="parts">
-            <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
+            <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0" scrolling="no"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
         </div> 
         <div class="parts">   
-            <iframe src="{{url_for('ToDoList')}}" frameborder="0"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
+            <iframe src="{{url_for('ToDoList')}}" frameborder="0" scrolling="no"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
         </div>  
-    </div>
+</div>
 
-    <div id="bottom_frame_container">
+<div class="frame_container">
         <div class="parts">
             <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0"></iframe>
         </div>
         <div class="parts">
             <iframe src="{{ url_for('UserProfile') }}" frameborder="0"></iframe>
         </div>
+</div>
+
+<div class="frame_container">
         <div class="parts">
-            <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"></iframe>
-            <!-- ANOTHER FRAME WILL HAVE A PIE CHARTING REPRESENTING TYPES OF JOBS-->
+            <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"  ></iframe>
         </div>
+
         <div class="parts">
             <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0"></iframe>
-            <!-- compares jobs completed for technician to toal jobs completed by all technicians-->
-        </div>
-    </div>
+        </div>    
+</div>
 {% endblock %}
 
 {% block scripts %}
