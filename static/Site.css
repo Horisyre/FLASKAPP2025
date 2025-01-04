@@ -1,17 +1,47 @@
-.parts{
-    display: inline-block;
-    border: 1px solid aquamarine;
-    text-align: center;
-    font-size: 12px;
-    box-sizing: border-box;
-    
+
+h1{
+    font-size: 15px;
 }
-.part{
-    display: inline-block;
-    border: 1px solid aquamarine;
-    padding: 1rem 1rem;
-    text-align: center;
+h2{
     font-size: 12px;
+}
+
+.HomePageH1{
+    text-align: left;
+}
+.HomePageH2{
+    text-align: left;
+}
+.layout_body{
+    background-color: rgba(78, 78, 209, 0.548);
+}
+.parts_container{
+    text-align: center;
+    background-color:  rgb(113, 113, 211);
+    border-radius: 10px;
+    padding: 10px
+}    
+.part{
+        border-radius: 10px;
+        display: inline-block;
+        background-color: rgba(78, 78, 209, 0.548);
+        padding: 10px;
+        text-align: center;
+        font-size: 12px;
+        margin-bottom: 10px;
+}
+.parts{
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgb(113, 113, 211);
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: 10px;
+    
 }
 .tabledata{
     border: 1px solid black;
@@ -24,14 +54,16 @@
      
     border: 1px solid black; /* Solid black border */
 }
-.parts_container{
-    text-align: center;
-}
+
+
 .frame_container{
     text-align: center;
     display: flex;
     justify-content: center;
 }
+
+
+
 .message {
     font-weight: 200;
     color: green;
@@ -180,3 +212,4 @@
 .right{
     width: 10%;
 }
+
