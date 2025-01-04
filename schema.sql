@@ -32,9 +32,9 @@ Create TABLE Technicians(
     Tech_number  INT AUTO_INCREMENT PRIMARY KEY
     Name VARCHAR(50) NOT NULL
     Surname VARCHAR(50) NOT NULL
-    Email address VARCHAR(50) NOT NULL
-    Phone number INTEGER NOT NULL
-    Physical address  VARCHAR(255) NOT NULL
+    Email_address VARCHAR(50) NOT NULL
+    Phone_number INTEGER NOT NULL
+    Physical_address  VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE PSSWORDS(
