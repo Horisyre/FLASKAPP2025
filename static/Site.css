@@ -21,15 +21,6 @@ h2{
     border-radius: 10px;
     padding: 10px
 }    
-.part{
-        border-radius: 10px;
-        display: inline-block;
-        background-color: rgba(78, 78, 209, 0.548);
-        padding: 10px;
-        text-align: center;
-        font-size: 12px;
-        margin-bottom: 10px;
-}
 .parts{
     border-radius: 10px;
     display: inline-block;
@@ -213,3 +204,55 @@ h2{
     width: 10%;
 }
 
+.layout_container{
+    display: flex;
+}
+
+.layout_left{
+    width: 90%;
+
+}
+.layout_right{
+    width: 10%;
+    position: fixed;
+    right: 0%;
+}
+.part1{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(233, 52, 52, 0.863),rgba(223, 126, 126, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part2{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(37, 224, 112, 0.863),rgba(129, 218, 165, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part3{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(238, 167, 37, 0.863),rgba(235, 197, 128, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part4{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right, rgba(54, 54, 209, 0.863),rgba(138, 138, 207, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
