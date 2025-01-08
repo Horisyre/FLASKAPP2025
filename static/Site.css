@@ -1,17 +1,38 @@
-.parts{
-    display: inline-block;
-    border: 1px solid aquamarine;
-    text-align: center;
-    font-size: 12px;
-    box-sizing: border-box;
-    
+
+h1{
+    font-size: 15px;
 }
-.part{
-    display: inline-block;
-    border: 1px solid aquamarine;
-    padding: 1rem 1rem;
-    text-align: center;
+h2{
     font-size: 12px;
+}
+
+.HomePageH1{
+    text-align: left;
+}
+.HomePageH2{
+    text-align: left;
+}
+.layout_body{
+    background-color: rgba(78, 78, 209, 0.548);
+}
+.parts_container{
+    text-align: center;
+    background-color:  rgb(113, 113, 211);
+    border-radius: 10px;
+    padding: 10px
+}    
+.parts{
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgb(113, 113, 211);
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    margin-left: 10px;
+    
 }
 .tabledata{
     border: 1px solid black;
@@ -24,14 +45,16 @@
      
     border: 1px solid black; /* Solid black border */
 }
-.parts_container{
-    text-align: center;
-}
+
+
 .frame_container{
     text-align: center;
     display: flex;
     justify-content: center;
 }
+
+
+
 .message {
     font-weight: 200;
     color: green;
@@ -93,11 +116,35 @@
 }
 
 .dropbtn {
-    background-color: #04AA6D;
     color: white;
     padding: 16px;
     font-size: 16px;
     border: none;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    background-color:  rgb(113, 113, 211);
+    overflow: hidden;
+    }
+
+.dropbtn:after {
+    content:  "\25be ";
+    left: -10px;
+    opacity: 0.4;
+    top: 10px;
+    }
+    
+.dropbtn:hover:after {
+    background: #ffff;
+    content: "";
+    height: 30px;
+    opacity: .2;
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 25px;
+    left: 140%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
     }
 
     /* The container <div> - needed to position the dropdown content */
@@ -130,8 +177,6 @@
     /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: grey;}
 
 .border{
     border: 2px solid black; 
@@ -179,4 +224,57 @@
 }
 .right{
     width: 10%;
+}
+
+.layout_container{
+    display: flex;
+}
+
+.layout_left{
+    width: 90%;
+
+}
+.layout_right{
+    width: 10%;
+    position: fixed;
+    right: 0%;
+}
+.part1{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(233, 52, 52, 0.863),rgba(223, 126, 126, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part2{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(37, 224, 112, 0.863),rgba(129, 218, 165, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part3{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right,rgba(238, 167, 37, 0.863),rgba(235, 197, 128, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.part4{
+    border-radius: 10px;
+    display: inline-block;
+    background-image: linear-gradient(to bottom right, rgba(54, 54, 209, 0.863),rgba(138, 138, 207, 0.863));
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
 }

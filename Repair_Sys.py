@@ -10,7 +10,7 @@ from config import Config
 from MySQLdb.cursors import DictCursor
 from forms import loginForm, Customerform, CroSubmitForm, CroAlterForm, completionForm, completeform, CroAlertForm
 from globalFunc import get_time_now,get_date,switch_repair
-
+import bcrypt
 
 app = Flask(__name__ ,static_url_path='/static')
 app.config.from_object(Config)
@@ -21,27 +21,41 @@ def login():
     session['Logs']=[]
     msg=''
     form= loginForm()
-    if form.validate_on_submit(): #we have to check for get/post when a webpage has a form, this is because a get request loads to ppage, post submits the form
-        number=form.usernumber.data
-        password=form.userpassword.data
+
+    if form.validate_on_submit(): 
+        usernumber=form.usernumber.data
+        userpassword=form.userpassword.data
         try:
-            number= int(number)
+            tech_num= int(usernumber)
+
             with mysql.connection.cursor(DictCursor) as cursor:
-                cursor.execute('SELECT * FROM PSSWORDS WHERE Tech_number = %s AND password_hash = %s', (number, password))
-                account=cursor.fetchone()
-            if account:
-                session['loggedin']=True
-                session['Tech_number']=account['Tech_number']
-                time= get_time_now()
-                session['Logs'].append(f"Technician {session['Tech_number']}, logged in @ {time}")
-                return redirect(url_for('home'))  
-            elif account==None:
-                msg="Incorrect password or Username"
+                cursor.execute('SELECT password_hash FROM PSSWORDS WHERE Tech_number = %s',  (tech_num,))
+                TechyData=cursor.fetchone()
+                
+                if TechyData==None:
+                    raise ValueError("Username does not exist")
+                stored_hash=TechyData["password_hash"]
+                
+                if bcrypt.checkpw(userpassword.encode('utf-8'), stored_hash.encode('utf-8')):
+                    session['loggedin']=True
+                    session['Tech_number']=tech_num
+                    time= get_time_now()
+                    session['Logs'].append(f"Technician {session['Tech_number']}, logged in @ {time}")
+                    return redirect(url_for('home'))
+
+                raise ValueError("Incorrect Password")
+
+        except ValueError as v:
+            msg=f"{v} "
+            app.logger.warning(msg)
+            return render_template('login.html', msg=msg,form=form)
+        
         except Exception as e:
-            #here willl log an error to app.loggr
-            msg="Incorrect password or Username"
+            msg="Error found in username or password"
+            app.logger.warning(msg)
             return render_template('login.html', msg=msg,form=form)
     return render_template('login.html', msg=msg,form=form)
+
 
 
 
