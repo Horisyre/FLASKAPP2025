@@ -166,24 +166,25 @@ def customerCreation():
         time=get_time_now()
 
         try:
-            Number= int(Number)
-            TechNo=int(TechNo)
-            session['Logs'].append(f"techy, number: {techy}, creating a customer @ {time}")
-            session.modified = True
-            query = """INSERT INTO Customers 
-                        (Name, Device, Email, Tech_number, Phone_number, Fault, Physical_Address, Checked_in)
-                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
-                    # Correct data as a tuple (must match placeholders order)
-            data = (Name, Device, Email, TechNo, Number, fault, CustAddress, Date )
-                # Execute the query with data
-            cursor.execute(query, data)
-            last_inserted_id = int(cursor.lastrowid) #this form with the correct
-                    
-            workshop_query="""INSERT INTO Workshop (Cro_id, Status)
-                    VALUES (%s, 'pending')"""
-            cursor.execute(workshop_query, (last_inserted_id,))
-            mysql.connection.commit()
-            return redirect(url_for('home'))
+            with mysql.connection.cursor(DictCursor) as cursor:
+                Number= int(Number)
+                TechNo=int(TechNo)
+                session['Logs'].append(f"techy, number: {techy}, creating a customer @ {time}")
+                session.modified = True
+                query = """INSERT INTO Customers 
+                            (Name, Device, Email, Tech_number, Phone_number, Fault, Physical_Address, Checked_in)
+                            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
+                        # Correct data as a tuple (must match placeholders order)
+                data = (Name, Device, Email, TechNo, Number, fault, CustAddress, Date )
+                    # Execute the query with data
+                cursor.execute(query, data)
+                last_inserted_id = int(cursor.lastrowid) #this form with the correct
+                        
+                workshop_query="""INSERT INTO Workshop (Cro_id, Status)
+                        VALUES (%s, 'pending')"""
+                cursor.execute(workshop_query, (last_inserted_id,))
+                mysql.connection.commit()
+                return redirect(url_for('home'))
         except Exception as e:
             #here willl log an error to app.loggr
             msg="invalid input in form"
