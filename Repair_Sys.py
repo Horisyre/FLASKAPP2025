@@ -167,7 +167,6 @@ def customerCreation():
 
         try:
             with mysql.connection.cursor(DictCursor) as cursor:
-                Number= int(Number)
                 TechNo=int(TechNo)
                 session['Logs'].append(f"techy, number: {techy}, creating a customer @ {time}")
                 session.modified = True
