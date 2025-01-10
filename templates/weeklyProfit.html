@@ -3,15 +3,17 @@
     <head>
         <title>Weekly Profit</title>
         <meta charset="utf-8" />
-        <link rel="stylesheet" text="text/css" href="{{url_for('static', filename='Site.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='Site.css')}}">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
     </head>
     <body>
         <canvas id="weeklyGraph" class="weeklyGraph">
         </canvas>
         <script>
-            const json_dates= {{dates | tojson |safe}};
-            const json_money_earned= {{costs | tojson |safe}};
+            const json_dates= {{dates | tojson | safe}};
+            const json_money_earned= {{costs | tojson | safe}};
+
+
             var ctx = document.getElementById('weeklyGraph').getContext('2d');
                 var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -38,11 +40,23 @@
                     'rgba(255, 159, 64, 1)',
                     'rgba(255, 189, 72, 1)'
                 ],borderWidth: 1
-                }]}
+                }]},
+                options:{
+                    scales:{
+                        y:{
+                            beginAtZero:true,
+                            grid:{
+                                display:false
+                            }
+                        },
+                        x:{
+                            grid:{
+                                display:false
+                            }
+                        }
+                    }
+                }
                 });
         </script>
-        <!--add options for chart js--> 
     </body>
-        
-
 </html>

@@ -475,7 +475,7 @@ def weeklyProfit():
         with mysql.connection.cursor() as cursor:
             today_date=get_date()
             today_date=datetime.datetime.strptime(today_date, "%Y-%m-%d")
-            week_ago=today_date-datetime.timedelta(days=7)
+            week_ago=today_date-datetime.timedelta(days=6)
             dates=[] #this will end becoming a array of  stirng ertainning to dates 
             costs=[] # a array of decimals
             for i in range(7):
