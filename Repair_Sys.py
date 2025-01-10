@@ -168,6 +168,13 @@ def customerCreation():
         try:
             with mysql.connection.cursor(DictCursor) as cursor:
                 TechNo=int(TechNo)
+
+                query0="SELECT * FROM Technicians WHERE Tech_number=%s"
+                cursor.execute(query0,(TechNo,))
+                technicianData=cursor.fetchone()
+                if technicianData==None:
+                    raise ValueError("Technician does not exist")
+
                 session['Logs'].append(f"techy, number: {techy}, creating a customer @ {time}")
                 session.modified = True
                 query = """INSERT INTO Customers 
@@ -184,6 +191,11 @@ def customerCreation():
                 cursor.execute(workshop_query, (last_inserted_id,))
                 mysql.connection.commit()
                 return redirect(url_for('home'))
+
+        except Exception as e:
+            #here willl log an error to app.loggr
+            msg="invalid input in form"
+            return render_template("customerCreation.html", mydate=date, CroNumber=CroNumber,form=form, msg=msg)
         except Exception as e:
             #here willl log an error to app.loggr
             msg="invalid input in form"
