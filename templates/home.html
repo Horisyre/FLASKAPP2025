@@ -2,12 +2,10 @@
 
 <!--here we will add iframes-->
 {% block content %}
-    <!--here we will add A DIV, THE DIV WILL BE DIVIDED IINTO FOUR PARTS, A ROW
-    THE FIRST PART WILL HAVE A NUMBER AND COMPLETED JOBS SO FAR,
-    SECOND PART NUMBER OF JOBS UPCOMING, MEANING JOBS THAT ARE PENDING OR BUSY 
-    THIRD PART WILL BE PERCENTAGE OF JOBS COMPLETED 
-    FOURTH PART WILL BE A RANK COMPARED TO OTHER TECHNICIANSS -->
+    <br>
     <div class="parts_container">
+        <h1 class="HomePageH1">Technician Performance Dashboard</h1>
+        <h2 class="HomePageH2">Job Insights Summary</h2>
         <div class="part1" >
             {{TotalJobsCreated}}<br>
             TOTAL JOBS CREATED
@@ -24,34 +22,38 @@
             {{Rank}}<br>
             TECHNICIAN RANK
         </div>
+        <br>
     </div>
+    <br>
     <div class="frame_container">
-        <div class="parts">
-            <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0" scrolling="no"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
-        </div> 
-        <div class="parts">   
-            <iframe src="{{url_for('ToDoList')}}" frameborder="0" scrolling="no"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
-        </div>  
-</div>
+            <div class="parts">
+                <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0"  width="450" height="250"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
+            </div> 
+            <div class="parts">   
+                <iframe src="{{url_for('ToDoList')}}" frameborder="0" scrolling="no" width="150"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
+            </div>  
+    </div>
+    <br>
+    <div class="frame_container">
+            <div class="parts">
+                <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0"></iframe>
+            </div>
+            <div class="parts">
+                <iframe src="{{ url_for('UserProfile') }}" frameborder="0"></iframe>
+            </div>
+    </div>
+    <br>
+    <div class="frame_container">
+            <div class="parts">
+                <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"  ></iframe>
+            </div>
 
-<div class="frame_container">
-        <div class="parts">
-            <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0"></iframe>
-        </div>
-        <div class="parts">
-            <iframe src="{{ url_for('UserProfile') }}" frameborder="0"></iframe>
-        </div>
-</div>
+            <div class="parts">
+                <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0"></iframe>
+            </div>    
+    </div>
 
-<div class="frame_container">
-        <div class="parts">
-            <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"  ></iframe>
-        </div>
 
-        <div class="parts">
-            <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0"></iframe>
-        </div>    
-</div>
 {% endblock %}
 
 {% block scripts %}

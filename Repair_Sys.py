@@ -168,6 +168,13 @@ def customerCreation():
         try:
             with mysql.connection.cursor(DictCursor) as cursor:
                 TechNo=int(TechNo)
+
+                query0="SELECT * FROM Technicians WHERE Tech_number=%s"
+                cursor.execute(query0,(TechNo,))
+                technicianData=cursor.fetchone()
+                if technicianData==None:
+                    raise ValueError("Technician does not exist")
+
                 session['Logs'].append(f"techy, number: {techy}, creating a customer @ {time}")
                 session.modified = True
                 query = """INSERT INTO Customers 
@@ -184,6 +191,11 @@ def customerCreation():
                 cursor.execute(workshop_query, (last_inserted_id,))
                 mysql.connection.commit()
                 return redirect(url_for('home'))
+
+        except Exception as e:
+            #here willl log an error to app.loggr
+            msg="invalid input in form"
+            return render_template("customerCreation.html", mydate=date, CroNumber=CroNumber,form=form, msg=msg)
         except Exception as e:
             #here willl log an error to app.loggr
             msg="invalid input in form"
@@ -463,7 +475,7 @@ def weeklyProfit():
         with mysql.connection.cursor() as cursor:
             today_date=get_date()
             today_date=datetime.datetime.strptime(today_date, "%Y-%m-%d")
-            week_ago=today_date-datetime.timedelta(days=7)
+            week_ago=today_date-datetime.timedelta(days=6)
             dates=[] #this will end becoming a array of  stirng ertainning to dates 
             costs=[] # a array of decimals
             for i in range(7):

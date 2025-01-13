@@ -1,0 +1,7 @@
+
+.vscode/launch.json
+.env
+__pycache__/config.cpython-312.pyc
+__pycache__/forms.cpython-312.pyc
+__pycache__/globalFunc.cpython-312.pyc
+__pycache__/Repair_Sys.cpython-312.pyc
