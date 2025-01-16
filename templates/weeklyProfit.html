@@ -23,22 +23,23 @@
                 label: 'Sales',
                 data: json_money_earned,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
+                    'rgba(255, 99, 132, 1)',  // Solid pinkish-red
+                    'rgba(54, 162, 235, 1)',  // Solid blue
+                    'rgba(255, 99, 132, 1)',  // Solid pinkish-red (again)
+                    'rgba(75, 192, 192, 1)',  // Solid teal
+                    'rgba(153, 102, 255, 1)', // Solid purple
+                    'rgba(54, 162, 235, 1)',  // Solid blue (again)
+                    'rgba(255, 99, 132, 1)'   // Solid pinkish-red (again)
+
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 189, 72, 1)'
+                    'rgba(255, 99, 132, 1)',  // Solid pinkish-red
+                    'rgba(54, 162, 235, 1)',  // Solid blue
+                    'rgba(255, 99, 132, 1)',  // Solid pinkish-red (again)
+                    'rgba(75, 192, 192, 1)',  // Solid teal
+                    'rgba(153, 102, 255, 1)', // Solid purple
+                    'rgba(54, 162, 235, 1)',  // Solid blue (again)
+                    'rgba(255, 99, 132, 1)'   // Solid pinkish-red (again)
                 ],borderWidth: 1
                 }]},
                 options:{
@@ -46,6 +47,13 @@
                         y:{
                             beginAtZero:true,
                             grid:{
+                                display:false,
+                                borderColor:'black'
+                            },
+                            border:{
+                                color:'black'
+                            },
+                            ticks:{
                                 display:false
                             }
                         },
@@ -53,16 +61,49 @@
                             grid:{
                                 display:false
                             },
+                            border:{
+                                color:'black'
+                            },
                             ticks:{
                                 beginAtZero:true,
                                 maxRotation: 0,
                                 minRotation: 0,
+                                color:"black",
                                 font:{
                                     size:8
-                                }
+                                },
+                                
                             },
                         }
+                    },
+                plugins: {
+                    title:{
+                        display:true,
+                        text:'Daily Earnings For The Week',
+                        color:'black'
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(128, 128, 128, 0.8)',  // Tooltip background color
+                        xAlign: 'right',  // Tooltip alignment
+                        titleColor: 'black',  // Tooltip title color
+                        bodyColor: 'black', 
+                        callbacks:{
+                            beforeTitle: function(context){
+                                return "Daily yield: ";
+                            }
+                        }
+                    },
+                    legend:{
+                        align:"start",
+                        labels:{
+                            color:"black",
+                            font:{
+                                size:9
+
+                            }
+                        }
                     }
+                }
                 }
                 });
         </script>

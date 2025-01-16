@@ -15,20 +15,21 @@
                     <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
                     <a href="{{ url_for('Completed') }}" class="navbar-item">completed</a>
                     <a href="{{ url_for('Alerts') }}" class="navbar-item">Alerts</a>
+                    {% block dropdown_options %} 
+                    <div class="dropdown">
+                        <button class="dropbtn">Options</button>
+                        <div class="dropdown-content" >
+                        
+                        <a href= "{{ url_for('customerCreation') }}" class="dropdown-options" target="_blank" rel="noopener noreferrer">Create CRO</a>
+                        <a href="{{ url_for('CustomerAlter') }}"  class="dropdown-options" target="_blank" rel="noopener noreferrer">Alter CRO</a>
+                        <a href="{{ url_for('CompleteCro') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Complete Repair order </a>  
+                        <a href="{{ url_for('WorkLogs') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Work Logs</a>
+                        </div>
+                    </div>
+                    {% endblock %} 
                 </div>
 
-                {% block dropdown_options %} 
-                <div class="dropdown">
-                    <button class="dropbtn">Dropdown</button>
-                    <div class="dropdown-content" >
-                    
-                    <a href= "{{ url_for('customerCreation') }}" class="dropdown-options" target="_blank" rel="noopener noreferrer">Create CRO</a>
-                    <a href="{{ url_for('CustomerAlter') }}"  class="dropdown-options" target="_blank" rel="noopener noreferrer">Alter CRO</a>
-                    <a href="{{ url_for('CompleteCro') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Complete Repair order </a>  
-                    <a href="{{ url_for('WorkLogs') }}"class="dropdown-options" target="_blank"  rel="noopener noreferrer">Work Logs</a>
-                    </div>
-                </div>
-                {% endblock %}  
+ 
                 <main>
 
                 {% block content %}
