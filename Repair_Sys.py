@@ -507,12 +507,19 @@ def ToDoList():
         tech_no=session['Tech_number']
         with mysql.connection.cursor() as cursor:
             query= """
-                SELECT Workshop.Cro_id FROM Workshop
+                SELECT Workshop.Cro_id, Customers.Name, Customers.Fault FROM Workshop
                 JOIN Customers ON Workshop.Cro_id=Customers.Cro_id
                 WHERE Tech_number= %s AND (Status='pending' OR Status='busy')
             """
+            
             cursor.execute(query,(tech_no,))
             Cros_To_complete=cursor.fetchall()
+            Cros_To_complete=[list(customer) for customer in Cros_To_complete]
+            #conversions required due to having nested tuples in a tuple, tuples are immutable
+            
+            for customer in Cros_To_complete:
+                if customer[2] is None:
+                    customer[2]=""
             return render_template("ToDoList.html", Cros_To_complete=Cros_To_complete)
     except Exception as e:
         #log e to aapp.logger 
