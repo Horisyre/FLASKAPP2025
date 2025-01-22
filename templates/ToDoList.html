@@ -9,8 +9,17 @@
     </head>
     <body>
         <!--  show all jobs customer repair orders that need to be compleedted-->      
-        <span class="listOfJobs">
-            {{Cros_To_complete}}
+        <span class="ToDolisT_span_1">
+            <h1>REPAIR ORDERS</h1>
+            <h2>TO DO:</h2>
+            CRO <br>
+            {% for customer in Cros_To_complete %}
+                {%if customer[2]==""%}
+                    {{ customer[0]}}: <span id="ToDoList_customer_details">{{customer[1]}}.</span>
+                {% else %}
+                    {{ customer[0]}}: <span id="ToDoList_customer_details">{{customer[1]}}, {{customer[2]}}. </span>
+                {% endif %}
+            {% endfor %}
         </span>
     </body>
 </html>
