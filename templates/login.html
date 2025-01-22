@@ -14,7 +14,7 @@
         <body class="login_body">
         <div align="center" >
             
-            <form action="{{url_for('login')}}" method="POST" class="login_form">
+            <form action="{{url_for('login')}}" method="POST" class="login_form" name="loginForm">
                 {{ form.hidden_tag() }} 
                 <h1>Log in</h1>
                 <div class="form-group">
@@ -26,17 +26,39 @@
                     <input type="text" name="userpassword" id="userpassword" required>
                 </div><br>
                 <span>
-                    <input type="submit" value="Login"><br>
+                    <input type="submit" value="Login" onclick="validate(event)"><br>
                 </span>
-                {% if msg %}
-                <p>{{ msg }}</p>
-                {% endif %}
+
+                <span class="error-msg" id="error-msg">
+                    {% if msg %}
+                    <p>{{ msg }}</p>
+                    {% endif %}
+                </span>
             </form>
 
         </div>
 
         <script>
+            function validate(event){
+                const name= document.forms["loginForm"]["usernumber"].value;
+                const password=document.forms["loginForm"]["userpassword"].value;
+                let errorMsg= document.getElementById("error-msg");
 
+                if ( (name ==="") || !/^[0-9]{1,10}$/.test(name) ){
+                    
+                    let errorMsg= document.getElementById("error-msg");
+                    errorMsg.innerHTML="Error, invalid username"
+                    event.preventDefault();
+                    return;
+                }
+                if ( (password ==="") ||  !/^[A-Za-z0-9]{1,8}$/.test(password)){
+                    let errorMsg= document.getElementById("error-msg");
+                    errorMsg.innerHTML="Error, invalid password"
+                    event.preventDefault();
+                    return;
+                }
+                return;
+            }
         </script>
         </body>
 </html>
