@@ -3,9 +3,6 @@
     <head>
         <title>Repair Order flask system</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Site.css')}}" />
-        <style>
-
-        </style>
 
     </head>
         <body class="login_body">
@@ -42,12 +39,12 @@
                 let errorMsg= document.getElementById("error-msg");
 
                 if ( (name ==="") || !/^[0-9]{1,10}$/.test(name) ){
-                    errorMsg.innerHTML="Error, invalid username"
+                    errorMsg.innerHTML="Error, invalid username";
                     event.preventDefault();
                     return;
                 }
                 if ( (password ==="") ||  !/^[A-Za-z0-9]{1,8}$/.test(password)){
-                    errorMsg.innerHTML="Error, invalid password"
+                    errorMsg.innerHTML="Error, invalid password";
                     event.preventDefault();
                     return;
                 }

@@ -287,6 +287,13 @@ h2{
     font-size: 12px;
     margin-bottom: 10px;
 }
+
+.ToDolisT_span_1{
+    font-size: 10px;
+}
+#ToDoList_customer_details{
+    margin-left: 12px;
+}
 .login_body {
     background-image: url('/static/images/BCCC17D9-1069-4825-9279A27253F1D041_source.webp');
     background-size: cover;
