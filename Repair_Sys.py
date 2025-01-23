@@ -21,7 +21,6 @@ def login():
     session['Logs']=[]
     msg=''
     form= loginForm()
-
     if form.validate_on_submit(): 
         usernumber=form.usernumber.data
         userpassword=form.userpassword.data
@@ -54,6 +53,8 @@ def login():
             msg="Error found in username or password"
             app.logger.warning(msg)
             return render_template('login.html', msg=msg,form=form)
+    
+    
     return render_template('login.html', msg=msg,form=form)
 
 
@@ -75,7 +76,7 @@ def home():
     try:
         date=get_date()
         with mysql.connection.cursor() as cursor:
-            msg=False
+            customersDue=False
             tech_no=int(session['Tech_number'])
             QUERY=("""SELECT * FROM Customers 
                     JOIN Workshop ON Customers.Cro_id = Workshop.Cro_id 
@@ -88,7 +89,7 @@ def home():
             cursor.execute(QUERY,(tech_no, date, date))
             alerts=cursor.fetchall()
             if alerts:
-                msg=True
+                customersDue=True
             TotalJobsCreated=0
             cursor.execute("SELECT COUNT(*) FROM Customers WHERE  Tech_number=%s",(tech_no,))
             TotalJobsCreated=cursor.fetchone()
@@ -133,7 +134,7 @@ def home():
                 Rank="NOT RANKED YET"
             else:
                 Rank=Rank[0]
-            return render_template('home.html', msg=msg,TotalJobsCreated=TotalJobsCreated,JobsUpcoming=JobsUpcoming,
+            return render_template('home.html', customersDue=customersDue,TotalJobsCreated=TotalJobsCreated,JobsUpcoming=JobsUpcoming,
             TotalJobsCompleted=TotalJobsCompleted,Rank=Rank)   
     except Exception  as e:
         #here willl log an error to app.loggr

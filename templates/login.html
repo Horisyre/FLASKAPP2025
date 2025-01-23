@@ -36,14 +36,15 @@
             function validate(event){
                 const name= document.forms["loginForm"]["usernumber"].value;
                 const password=document.forms["loginForm"]["userpassword"].value;
+                //remove leading and tail spaces
                 let errorMsg= document.getElementById("error-msg");
-
+                
                 if ( (name ==="") || !/^[0-9]{1,10}$/.test(name) ){
                     errorMsg.innerHTML="Error, invalid username";
                     event.preventDefault();
                     return;
                 }
-                if ( (password ==="") ||  !/^[A-Za-z0-9]{1,8}$/.test(password)){
+                if ( (password ==="") ||  !/^[A-Za-z0-9]{1,9}$/.test(password)){
                     errorMsg.innerHTML="Error, invalid password";
                     event.preventDefault();
                     return;
