@@ -54,7 +54,12 @@
     </div>
 
     <div class="layout_modal" id="layout_modal">
-      
+      <div class="modal-header" id="modal-header">
+        <button class="modal-close-button" id="modal-close-button" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-content" id="modal-content">
+
+      </div>
     </div>
 
 
@@ -63,19 +68,18 @@
 {% block scripts %}
    <!--alter here-->
     <script>
-        const dropdownOptions = document.querySelectorAll('.dropdown-options');
-        let modalContent=document.getElementById("layout_modal");
-        
-        const dropDownEventListner= event =>{
+        const dropdownOptions = document.querySelectorAll(".dropdown-options");
+        const dropDownEventListner= event=>{
           event.preventDefault(); 
-          const url =  this.href; 
-          const width = 800;
-          const height = 600; 
-          modalContent.innerHTML= <iframe src= "${url}" height="${height}"y width= "${width}" ></iframe>
-            //comments:  
-              //open url in modal
-              //window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top}`);
-          };
+          let modal=document.getElementById("layout_modal");
+          let modalContent=document.getElementById("modal-content");
+          modal.style.display="block"
+          const url =  event.target.href; 
+          const width = 600;
+          const height = 500; 
+          modalContent.innerHTML= `<iframe src="${url}" height="${height}" width="${width}" class="modal_iframe"></iframe>`;
+          //iframe has its own border alter that
+        };
 
         dropdownOptions.forEach(option => {
             option.addEventListener('click',dropDownEventListner);
@@ -84,8 +88,16 @@
     </script>
 
     <script>
+        function closeModal(){
+            let content=document.getElementById("modal-content");
+            let layout=document.getElementById("layout_modal");
+            content.innerHTML="";
+            layout.style.display="none";
+        }
+    </script>
+
+    <script>
         const Due ={{customersDue | tojson }};
-        
         if(Due){
             //alter here
             let rules = document.styleSheets[0].cssRules;
