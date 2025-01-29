@@ -12,15 +12,22 @@
         <div class="container">
             
             <div class="layout_left">
-                <div class="navbar",align="right">
-                    <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-                    <a href="{{ url_for('Completed') }}" class="navbar-item">completed</a>
-                    <div class="alert-div" >
+                <div class="navbar",align="left">
+                    <div class="layout-header">
+                        <a href="{{ url_for('home') }}" class="navbar-item">Home</a>
+                    </div>
+                    
+                    <div class="layout-header">
+                        <a href="{{ url_for('Completed') }}" class="navbar-item">Completed</a>
+                    </div>
+                    
+                    <div class="alert-div " >
                         <a href="{{ url_for('Alerts') }}" class="navbar-item" >Alerts</a>
                     </div>
+
                     {% block dropdown_options %} 
                     <div class="dropdown">
-                        <button class="dropbtn">Options</button>
+                        <button class="dropbtn ">Options</button>
                         <div class="dropdown-content" >
                           <a href= "{{ url_for('customerCreation') }}" class="dropdown-options" target="_blank" rel="noopener noreferrer">Create CRO</a>
                           <a href="{{ url_for('CustomerAlter') }}"  class="dropdown-options" target="_blank" rel="noopener noreferrer">Alter CRO</a>
