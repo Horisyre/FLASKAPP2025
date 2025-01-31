@@ -87,15 +87,33 @@ h2{
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+
+html {
+    height: 100%;
+}
+.login_body{
+    background-image: url('/static/images/BCCC17D9-1069-4825-9279A27253F1D041_source.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+    
 .login_form {
-    width: 200px;
-    margin: auto;
     padding: 20px;
+    width: 35%;
+    height: 50%;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
+    margin:0 auto;
+    text-align: center;
 }
-/*alter padding for dropdown */
+.login_form_div{
+    align-content: center;
+    height: 80%;
+}
+
 
 .dropbtn {
     color: white;
@@ -276,10 +294,7 @@ h2{
     margin-left: 12px;
 
 }
-.login_body {
-    background-image: url('/static/images/BCCC17D9-1069-4825-9279A27253F1D041_source.webp');
-    background-size: cover;
-}
+
 .navbar {
     background-color: rgb(113, 113, 211);
     font-size: 1em;
@@ -381,7 +396,7 @@ h2{
     border-radius: 8px;
     
 }
-/* keep the .alert-div::after as the last style in the css file*/
+
 .modal_iframe{
     border: none;
 }
@@ -402,7 +417,7 @@ h2{
     left: 100%;
     transition: all 550ms cubic-bezier(0.32, 1, 0.22, 1);
     }
-
+/* keep the .alert-div::after as the last style in the css file*/
 .alert-div::after{
     content: "";
     font-size: 7px;

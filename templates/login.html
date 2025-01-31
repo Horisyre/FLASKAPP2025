@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html >
     <head>
         <title>Repair Order flask system</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Site.css')}}" />
 
     </head>
         <body class="login_body">
-        <div align="center" >
+        <div class="login_form_div" >
             
             <form action="{{url_for('login')}}" method="POST" class="login_form" name="loginForm">
                 {{ form.hidden_tag() }} 
@@ -29,7 +29,6 @@
                     {% endif %}
                 </span>
             </form>
-
         </div>
 
         <script>
