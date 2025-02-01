@@ -10,17 +10,17 @@
             
             <form action="{{url_for('login')}}" method="POST" class="login_form" name="loginForm">
                 {{ form.hidden_tag() }} 
-                <h1>Log in</h1>
+                <h1 class="login-H1">Log in</h1>
                 <div class="form-group">
                     <label>username:</label><br>
-                    <input type="text" name="usernumber" id="usernumber" required>
+                    <input class="login-input" type="text" name="usernumber" id="usernumber" required >
                 </div><br>
                 <div class="form-group">
                     <label>user password:</label><br>
-                    <input type="password" name="userpassword" id="userpassword" required>
+                    <input class="login-input" type="password" name="userpassword" id="userpassword" required>
                 </div><br>
                 <span>
-                    <input type="submit" value="Login" onclick="validate(event)"><br>
+                    <input type="submit" value="Login" class="login_btn" onclick="validate(event)"><br>
                 </span>
 
                 <span class="error-msg" id="error-msg">
