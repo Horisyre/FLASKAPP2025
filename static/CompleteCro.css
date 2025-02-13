@@ -1,0 +1,11 @@
+.tabledata{
+    border: 1px solid black;
+    text-align: center;
+    border-collapse: collapse;
+    font-size: 12px;
+    
+}
+.tabledataDATA{
+     
+    border: 1px solid black; /* Solid black border */
+}

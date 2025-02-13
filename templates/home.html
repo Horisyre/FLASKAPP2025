@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+{% block title %} Home Page {% endblock %}
+{% block styles%}<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css')}}" />{% endblock %}
 
 <!--here we will add iframes-->
 {% block content %}
@@ -26,30 +28,30 @@
     </div>
     <br>
     <div class="frame_container">
-            <div class="parts">
-                <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0"  width="450" height="250"></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
+            <div class="parts1">
+                <iframe src="{{ url_for('weeklyProfit') }}" frameborder="0"   ></iframe> <!--change to weeklyprofit, MKAE IFRAMES UNSCRROLLABLE-->
             </div> 
-            <div class="parts">   
-                <iframe src="{{url_for('ToDoList')}}" frameborder="0" scrolling="no" width="150"></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
+            <div class="parts2">   
+                <iframe src="{{url_for('ToDoList')}}" frameborder="0" scrolling="no"  ></iframe><!--THIS WILL DISPLAYED A LIST OF NUMBER OF CUSTOMER REPAIR ORDERS UPCOMING-->
             </div>  
     </div>
     <br>
     <div class="frame_container">
-            <div class="parts">
-                <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0"></iframe>
+            <div class="parts3">
+                <iframe src="{{ url_for('monthlyProfit') }}" frameborder="0" ></iframe>
             </div>
-            <div class="parts">
-                <iframe src="{{ url_for('UserProfile') }}" frameborder="0"></iframe>
+            <div  class="parts4">
+                <iframe src="{{ url_for('UserProfile') }}" frameborder="0"  ></iframe>
             </div>
     </div>
     <br>
     <div class="frame_container">
-            <div class="parts">
-                <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"  ></iframe>
+            <div class="parts5">
+                <iframe src="{{ url_for('JobPieChart') }}" frameborder="0"   ></iframe>
             </div>
 
-            <div class="parts">
-                <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0"></iframe>
+            <div class="parts6">
+                <iframe src="{{ url_for('PercentageJobsCompleted') }}" frameborder="0" ></iframe>
             </div>    
     </div>
 
