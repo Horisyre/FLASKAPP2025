@@ -1,0 +1,9 @@
+.my_span {
+    display: block;
+}
+.inputField{
+    width: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 8px;
+}

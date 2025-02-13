@@ -1,0 +1,180 @@
+html {
+    height: 100%;
+}
+h2{
+    font-size: 12px;
+}
+.layout_body{
+    background-color: rgba(78, 78, 209, 0.548);
+}
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.label-container{
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+}
+.layout_left{
+    width: 90%;
+
+}.label-header{
+    position: relative;
+}
+
+
+.navbar {
+    background-color: rgb(113, 113, 211);
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+    display: flex;
+}
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+    
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    overflow: none;
+    
+    
+}
+.dropdown {
+    position: relative;
+    margin-left: 15px;
+    }
+    .dropbtn {
+        color: white;
+        margin-left: 5px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        
+        background-color:  rgb(113, 113, 211);
+        overflow: hidden;
+        font-variant: small-caps;
+    
+        }
+    
+    .dropbtn:after {
+        content:  "\25be ";
+        left: -10px;
+        opacity: 0.4;
+        top: 10px;
+        }
+        
+    .dropbtn:hover:after {
+        background: #ffff;
+        content: "";
+        height: 30px;
+        opacity: .3;
+        position: absolute;
+        top: 0px;
+        width: 25px;
+        left: 100%;
+        transition: all 550ms cubic-bezier(0.32, 1, 0.22, 1);
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgb(204, 195, 195);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            
+            }
+        
+            
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            box-sizing: border-box;
+            }
+        
+            
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            
+            }
+        
+            
+        .dropdown:hover .dropdown-content {
+            display: block
+            }
+
+            .footer{
+                position: relative;
+                bottom: 0;
+                width: 100%;
+                left:0;
+                text-align: center;
+                padding: 10px;
+            }
+            
+            
+
+            .layout-header{
+                position: relative;
+                overflow: hidden;
+            }
+            
+            .layout-header:after {
+                content:  "";
+                position: absolute;
+                left: -5px;
+                opacity: 0.4;
+                top: 10px;
+                }
+            .layout-header:hover:after {
+                background: #ffff;
+                content: "";
+                height: 30px;
+                opacity: .3;
+                top: 0px;
+                width: 10px;
+                left: 100%;
+                transition: all 550ms cubic-bezier(0.32, 1, 0.22, 1);
+                }
+                .layout_right{
+                    width: 10%;
+                    position: fixed;
+                    right: 0%;
+                }
+                .alert-div {
+                    overflow: hidden;
+                    position: relative;
+                }
+                .alert-div:hover:after {
+                    background: #ffff;
+                    content: "";
+                    height: 30px;
+                    opacity: .3;
+                    position: absolute;
+                    top: 0px;
+                    width: 10px;
+                    left: 100%;
+                    transition: all 550ms cubic-bezier(0.32, 1, 0.22, 1);
+                    }
+                /* keep the .alert-div::after as the last style in the css file*/
+                .alert-div::after{
+                    content: "";
+                    font-size: 7px;
+                    color: red;
+                    left: -5px;
+                    opacity: 0.4;
+                    top: 10px;
+                }
